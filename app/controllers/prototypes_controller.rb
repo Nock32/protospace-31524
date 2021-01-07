@@ -23,8 +23,9 @@ class PrototypesController < ApplicationController
   
   def destroy
    prototype = Prototype.find(params[:id])
-   prototype.destroy
-   render :index
+   if prototype.destroy
+    redirect_to root_path
+   end
   end
   
   def update
